@@ -2,8 +2,56 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Helvetica', Arial, sans-serif;
+}
+
+body {
+  background-color: #104a62;
 }
 
 h1 {
+  width: 80%;
+  margin: 2rem auto 1.5rem;
+  border: 3px solid #5ac5e6;
+  border-radius: 1rem;
+  background-color: #107394;
+  padding: 1.5rem 1rem;
+  font-size: 1.8rem;
   text-align: center;
+  color: #fff;
+
+}
+
+.pokemonFacts {
+  width: 80%;
+  margin: 0 auto 2rem;
+  border: 3px solid #5ac5e6;
+  border-radius: 1rem;
+  background-color: #107394;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.35rem;
+  color: #fff;
+}
+
+.dataSection {
+  width: 80%;
+  margin: 0 auto 2rem;
+  border: 3px solid #5ac5e6;
+  border-radius: 1rem;
+  background-color: #107394;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.35rem;
+  color: #fff;
+}
+
+.dataSection a {
+  color: #cdcdcd;
+}
+
+.dataSection a:hover {
+  color: #fff;
 }

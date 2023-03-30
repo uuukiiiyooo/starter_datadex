@@ -29,12 +29,19 @@ const pokemonStarters = [
 ];
 
 // Create functions to display filtered and mapped objects
+// If is the last object add "and ", the previous adds nothing and the rest adds ","
 function displayNames() {
-  let mapPokemonNames = pokemonStarters.map(function(pokemon) {
-    return " " + pokemon.name;
+  let mapPokemonNames = pokemonStarters.map(function(pokemon, index) {
+    if (index + 1 === pokemonStarters.length) {
+      return "and " + pokemon.name;
+     } else if (index + 2 === pokemonStarters.length) {
+      return pokemon.name;
+     } else {
+      return pokemon.name + ",";
+     }
   });
 
-  return `The names of all starter Pokémon are${mapPokemonNames}.`;
+  return `The names of all starter Pokémon are ${mapPokemonNames.join(" ")}.`;
 }
 
 function displayWater() {
@@ -42,11 +49,17 @@ function displayWater() {
     return pokemon.type == "Water";
   });
   
-  let mapWaterStarters = getWaterStarters.map(function(pokemon) {
-    return " " + pokemon.name;
+  let mapWaterStarters = getWaterStarters.map(function(pokemon, index) {
+    if (index + 1 === getWaterStarters.length) {
+      return "and " + pokemon.name;
+     } else if (index + 2 === getWaterStarters.length) {
+      return pokemon.name;
+     } else {
+      return pokemon.name + ",";
+     }
   });
 
-  return `The names of all water starter Pokémon are${mapWaterStarters}.`;
+  return `The names of all water starter Pokémon are ${mapWaterStarters.join(" ")}.`;
 }
 
 function displayKanto () {
@@ -54,15 +67,21 @@ function displayKanto () {
     return pokemon.region == "Kanto";
   });
   
-  let mapKantoStarters = getKantoStarters.map(function(pokemon) {
-    return " " + pokemon.name;
-  })
+  let mapKantoStarters = getKantoStarters.map(function(pokemon, index) {
+    if (index + 1 === getKantoStarters.length) {
+    return "and " + pokemon.name;
+   } else if (index + 2 === getKantoStarters.length) {
+    return pokemon.name;
+   } else {
+    return pokemon.name + ",";
+   }
+  });
   
-  return `The names of Kanto's starter Pokémon are${mapKantoStarters}.`;
+  return `The names of Kanto's starter Pokémon are ${mapKantoStarters.join(" ")}.`;
 }
 
 
-// Create dynamic html and display on index
+// Create sentence's dynamic html and display
 let pokemonNamesSection = document.getElementById('pokemonNamesSection');
 pokemonNamesSection.innerHTML = displayNames(pokemonStarters);
 
@@ -71,3 +90,17 @@ waterPokemonSection.innerHTML = displayWater(pokemonStarters);
 
 let pokemonRegionSection = document.getElementById('pokemonRegionSection');
 pokemonRegionSection.innerHTML = displayKanto(pokemonStarters);
+
+
+//Create data dynamic html display 
+function displayObject(pokemon) {
+  return `${pokemon.name}`
+}
+
+let displayHTML = '';
+pokemonStarters.forEach(pokemon => {
+  displayHTML += displayObject(pokemon);
+});
+
+let pokemonData = document.getElementById(pokemonData);
+pokemonData.innerHTML = displayHTML;
